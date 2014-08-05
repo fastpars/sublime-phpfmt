@@ -2093,8 +2093,8 @@ if (!isset($testEnv)) {
 	$fmt->addPass(new ReindentObjOps());
 	$fmt->addPass(new OrderUseClauses());
 	$fmt->addPass(new EliminateDuplicatedEmptyLines());
-	$fmt->addPass(new AlignEquals());
-	$fmt->addPass(new AlignDoubleArrow());
+	// $fmt->addPass(new AlignEquals());
+	// $fmt->addPass(new AlignDoubleArrow());
 
 	$opts = getopt('o:', ['psr', 'indent_with_space']);
 	if (isset($opts['psr'])) {
