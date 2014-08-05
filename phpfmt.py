@@ -21,6 +21,8 @@ class phpfmt(sublime_plugin.EventListener):
         psr = s.get("psr1_and_2", False)
         indent_with_space = s.get("indent_with_space", False)
         php_bin = s.get("php_bin", "php")
+        without_align_equals = s.get("without_align_equals", False)
+        without_align_double_arrow = s.get("without_align_double_arrow", False)
         formatter_path = os.path.join(dirname(realpath(sublime.packages_path())), "Packages", "phpfmt", "codeFormatter.php")
 
         uri = view.file_name()
@@ -55,6 +57,12 @@ class phpfmt(sublime_plugin.EventListener):
 
             if indent_with_space:
                 cmd_fmt.append("--indent_with_space")
+
+            if without_align_equals:
+                cmd_fmt.append("--without_align_equals")
+
+            if without_align_double_arrow:
+                cmd_fmt.append("--without_align_double_arrow")
 
             cmd_fmt.append(uri)
 

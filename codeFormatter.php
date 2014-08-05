@@ -2093,10 +2093,8 @@ if (!isset($testEnv)) {
 	$fmt->addPass(new ReindentObjOps());
 	$fmt->addPass(new OrderUseClauses());
 	$fmt->addPass(new EliminateDuplicatedEmptyLines());
-	$fmt->addPass(new AlignEquals());
-	$fmt->addPass(new AlignDoubleArrow());
 
-	$opts = getopt('o:', ['psr', 'indent_with_space']);
+	$opts = getopt('o:', ['psr', 'indent_with_space', 'without_align_equals', 'without_align_double_arrow']);
 	if (isset($opts['psr'])) {
 		PsrDecorator::decorate($fmt);
 		$argv = array_values(
@@ -2116,6 +2114,12 @@ if (!isset($testEnv)) {
 				}
 			)
 		);
+	}
+	if (!isset($opts['without_align_equals'])) {
+		$fmt->addPass(new AlignEquals());
+	}
+	if (!isset($opts['without_align_double_arrow'])) {
+		$fmt->addPass(new AlignEquals());
 	}
 	$fmt->addPass(new LeftAlignComment());
 	$fmt->addPass(new RTrim());

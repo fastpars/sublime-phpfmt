@@ -1,5 +1,7 @@
 {
 // "psr1_and_2":false,
 // "php_bin":"/usr/local/bin/php",
-// "indent_with_space":false
+// "indent_with_space":false,
+// "without_align_equals":false,
+// "without_align_double_arrow":false
 }
